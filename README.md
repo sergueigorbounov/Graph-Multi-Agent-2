@@ -1,19 +1,18 @@
-# **README Étendu - Test Technique Développeur Fullstack**
-
----
+# **README - NestJS, LangGraph, TypeScript**
 ![demo.png](public/demo.png)
-### **🚀 [Application Déployée sur Vercel](https://graph-iaf4xjib0-sergueis-projects-5c54ca99.vercel.app)**  
+---
+
+### **🚀 👉[Application Déployée](https://graph-multi-agent-2.onrender.com)👈**  
 Aucune installation nécessaire, testez directement l'application en ligne ! 🎄
 
 ---
-
 ## **Résumé du Projet**
 
-Ce projet met en avant l'intégration d'outils avancés comme **LangGraph**, **LangChain**, et **NestJS** pour construire une architecture backend orchestrée par des agents communicants. Il démontre une expertise dans la création de workflows sophistiqués tout en intégrant des pratiques modernes de développement en TypeScript.
+Ce projet met en avant l'intégration d'outils comme **LangGraph**, **LangChain**, **LangSmith** et **NestJS** pour construire une architecture backend orchestrée par des agents communicants. Il démontre une expertise dans la création de workflows sophistiqués tout en intégrant des pratiques modernes de développement en **TypeScript**.
 
-Le système est centré sur la gestion d'un panier d'achat enrichi par des recherches intelligentes et utilise une orchestration multi-agent avancée. L'application, déployée sur **Vercel**, propose également une interface engageante avec des fonctionnalités interactives comme un Easter egg.
+Le système est centré sur la gestion d'un panier d'achat enrichi par des recherches intelligentes et utilise une orchestration multi-agent avancée. L'application, déployée sur **Render**, propose également une interface engageante avec des fonctionnalités interactives comme un "Easter egg" **Vue.js**.
 
-👉 **[Graph Multi-Agent sur Vercel](https://graph-iaf4xjib0-sergueis-projects-5c54ca99.vercel.app)** 👈
+👉 **[Graph Multi-Agent](https://graph-multi-agent-2.onrender.com)** 👈
 
 ---
 
@@ -24,7 +23,7 @@ Le système est centré sur la gestion d'un panier d'achat enrichi par des reche
 Le choix de **NestJS** comme framework backend était stratégique pour ses avantages suivants :
 - **Modularité** : Simplifie l'intégration de services complexes, comme les agents définis dans **LangGraph**.
 - **Support TypeScript** : Permet une typage strict, réduisant les erreurs et augmentant la maintenabilité.
-- **Injecteurs de dépendances** : Utilisés pour brancher les agents et outils nécessaires dans les modules correspondants.
+- **Injecteurs de dépendances** : Utilisés pour brancher outils nécessaires dans les modules correspondants.
 
 ### **Principales Innovations**
 
@@ -32,14 +31,11 @@ Le choix de **NestJS** comme framework backend était stratégique pour ses avan
 - Mise en place d'une orchestration des agents à l'aide d'un graphe défini via **LangGraph**.
 - Gestion centralisée des états avec des annotations spécifiques, facilitant la communication entre agents.
 
-#### **2. Utilisation de Technologies Avancées**
-- **LangChain** pour orchestrer les prompts et interactions complexes.
+#### **2. Utilisation de Technologies**
+- **NestJS** pour un backend efficace, modulaire, maintenable et moderne. 
+- **LangGraph** pour orchestrer les prompts et interactions complexes.
 - **Tavily** pour les recherches dynamiques sur Internet.
 - **OpenAI API** pour les réponses basées sur des modèles LLM.
-
-#### **3. Intégration Avancée des Modules**
-- Les agents sont conçus en tant que **services NestJS**, intégrés dans des modules distincts pour une séparation des responsabilités.
-- Les workflows sont orchestrés au sein d'un module dédié, qui utilise les agents comme dépendances.
 
 ---
 
@@ -61,9 +57,9 @@ Le choix de **NestJS** comme framework backend était stratégique pour ses avan
   });
   ```
 
-### **2. Création des Agents avec NestJS**
-- **Agent Tavily** : Implémenté comme un service NestJS qui intègre l'API Tavily pour effectuer des recherches.
-- **Cart Manager** : Gestion des produits via des services utilisant des fichiers JSON comme base de données temporaire.
+### **2. Création des Agents**
+- **Agent Tavily** : Tavily API pour effectuer des recherches.
+- **Cart Manager** : Gestion des produits utilisant des fichiers JSON comme base de données temporaire.
 - **Agent Supervisor** : Orchestration des tâches entre les agents.
 
 
@@ -80,7 +76,7 @@ Le choix de **NestJS** comme framework backend était stratégique pour ses avan
   ```
 
 ### **4. Orchestration des Flux avec LangSmith**
-- Les interactions entre les agents sont supervisées et ajustées via LangSmith.
+- Les interactions entre les agents sont supervisées via LangSmith.
 
 ---
 
@@ -139,15 +135,15 @@ Votre panier contient :
   - `cartManager.agent.ts` : Gestion des produits du panier.
   - `tavily.agent.ts` : Recherche de produits via API Tavily.
   - `supervisor.agent.ts` : Coordination entre agents.
-- **`modules/`** : Modules NestJS organisés pour chaque fonctionnalité.
 - **`state/`** : Gestion centralisée des états.
 - **`workflow/`** : Définition du graphe LangGraph.
 
 ### **Dossier Public : `public/`**
 - Contient l’interface utilisateur avec animations.
-
+  
+### **Root**
 - **`cart.json`** : Stockage des produits ajoutés au panier.
-
+En cas de problème avec **cart.json**, un stockage temporaire via **Redis** est prévu pour assurer la continuité.
 ---
 
 ## **Installation**
@@ -155,7 +151,9 @@ Votre panier contient :
 ### **Prérequis :**
 - **Node.js** (v18 ou supérieur)
 - **npm** (v9 ou supérieur)
-- Une clé API OpenAI.
+- Une clé API OpenAI
+- Une clé API Tavily
+- Une clé API LangChain (Opt.)
 
 ### **Étapes :**
 1. **Cloner le dépôt** :
@@ -173,16 +171,17 @@ Votre panier contient :
    - Créez un fichier `.env` :
      ```env
      OPENAI_API_KEY=your_openai_api_key
-     TAVELY_API_KEY=your_tavely_api_key
+     TAVILY_API_KEY=your_tavily_api_key
      ```
 
 4. **Lancer l'application** :
    ```bash
-   npm run start
+   npm run build
+   npm start
    ```
 
 5. **Ou visitez directement :**  
-   👉 **[Graph Multi-Agent sur Vercel](https://graph-iaf4xjib0-sergueis-projects-5c54ca99.vercel.app)** 👈
+   👉 **[Graph Multi-Agent](https://graph-multi-agent-2.onrender.com)** 👈
 
 ---
 
@@ -192,7 +191,7 @@ Votre panier contient :
    - Passage de JSON à PostgreSQL pour une gestion persistante.
 
 2. **Interface Utilisateur Complète** :
-   - Création d'un frontend graphique réactif.
+   - Création d'un frontend graphique réactif Vue.js.
 
 3. **Optimisation des Performances** :
    - Réduction des temps de réponse dans les workflows.
@@ -201,4 +200,4 @@ Votre panier contient :
 
 🎄 **Joyeux Noël et Bonne Année !**  
 **Sergueï Gorbounov**.  
-[**Lien GitHub**](https://github.com/sergueigorbounov/Graph-Multi-Agent-Final) | [**Lien Déployé sur Vercel**](https://graph-iaf4xjib0-sergueis-projects-5c54ca99.vercel.app) 🎅
+[**Lien GitHub**](https://github.com/sergueigorbounov/Graph-Multi-Agent-Final) | [**Lien Déployé**](https://graph-multi-agent-2.onrender.com) 🎅
